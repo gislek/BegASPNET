@@ -3,13 +3,13 @@ X-Receiver: "Receiver Name" <receiver@example.com>
 MIME-Version: 1.0
 From: "Sender Name" <sender@example.com>
 To: "Receiver Name" <receiver@example.com>
-Reply-To: gislekvalvik@gmail.com
+Reply-To: reply@example.com
 Date: 11 Aug 2016 14:43:51 +0200
 Subject: Response from web site
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
 
 Hi there,=0D=0A=0D=0AA user has left the following feedback at th=
-e site:=0D=0A=0D=0AName:				Gisle=0D=0AE-mail address:		gislekval=
-vik@gmail.com=0D=0AHome phone:			95942585=0D=0ABusiness phone:		=0D=0A=
+e site:=0D=0A=0D=0AName:				Gisle=0D=0AE-mail address:		reply=
+@example.com=0D=0AHome phone:			12345678=0D=0ABusiness phone:		=0D=0A=
 Comments:			Test comment here
