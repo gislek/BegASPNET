@@ -1,0 +1,11 @@
+X-Sender: "My Name" <you@example.com>
+X-Receiver: "Receiver Name" <gislekvalvik@gmail.com>
+MIME-Version: 1.0
+From: "My Name" <you@example.com>
+To: "Receiver Name" <gislekvalvik@gmail.com>
+Date: 11 Aug 2016 14:01:48 +0200
+Subject: Test Message
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+Hello world, from Planet Wrox
