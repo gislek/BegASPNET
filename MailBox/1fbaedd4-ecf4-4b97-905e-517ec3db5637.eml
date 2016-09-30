@@ -1,0 +1,12 @@
+X-Sender: "My Name" <you@example.com>
+X-Receiver: email@example.com
+MIME-Version: 1.0
+From: "My Name" <you@example.com>
+To: email@example.com
+Date: 29 Sep 2016 14:31:08 +0200
+Subject: Your New Password for PlanetWrox.com
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+Please return to the site and log in using the following informat=
+ion.=0AUser Name: TestUser=0APassword: )=3Dc{wK!fEsJK&H=0A=0A

@@ -1,0 +1,15 @@
+X-Sender: "My Name" <you@example.com>
+X-Receiver: test2@example.com
+MIME-Version: 1.0
+From: "My Name" <you@example.com>
+To: test2@example.com
+Date: 29 Sep 2016 13:43:27 +0200
+Subject: Your New Account at PlanetWrox.com
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+HI test2,=0D=0A=0D=0AThank you for signing up for a new account a=
+t www.PlanetWrox.com.=0D=0A=0D=0ATo log in to the site, use the f=
+ollowing details:=0D=0A=0D=0AUser name:		test2=0D=0APassword:		te=
+stpass2=0D=0A=0D=0AWe look forward to your contributions.=0D=0A=0D=0A=
+The Planet Wrox Team
