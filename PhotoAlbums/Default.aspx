@@ -7,7 +7,8 @@
         <ContentTemplate>
             <asp:DropDownList ID="photoAlbumList" runat="server" AutoPostBack="True" DataTextField="Name" DataValueField="Id" OnSelectedIndexChanged="photoAlbumList_SelectedIndexChanged" SelectMethod="PhotoAlbumList_GetData">
             </asp:DropDownList>
-            <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id" ItemType="Picture" SelectMethod="ListView1_GetData">
+
+            <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id" ItemType="Picture" SelectMethod="ListView1_GetData" OnDataBound="ListView1_DataBound">
                 <EmptyDataTemplate>
                     No pictures found for this photo album
                 </EmptyDataTemplate>
@@ -20,17 +21,29 @@
                     </li>
                 </ItemTemplate>
                 <LayoutTemplate>
-                    <ul class="ItemContainer">
-                        <li id="itemPlaceholder" runat="server" />
-                    </ul>
-                    <asp:DataPager ID="DataPager1" runat="server" PageSize="3">
-                        <Fields>
-                            <asp:NumericPagerField />
-                        </Fields>
-                    </asp:DataPager>
-
+                    <table>
+                        <tr>
+                            <td>
+                                <ul class="ItemContainer">
+                                    <li id="itemPlaceholder" runat="server" />
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:DataPager ID="DataPager1" runat="server" PageSize="9">
+                                    <Fields>
+                                        <asp:NumericPagerField />
+                                    </Fields>
+                                </asp:DataPager>
+                            </td>
+                        </tr>
+                    </table>
                 </LayoutTemplate>
             </asp:ListView>
+            <br />
+            <br />
+            <asp:HyperLink ID="EditLInk" runat="server" Text="Edit Photo Album" />
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
