@@ -17,7 +17,7 @@ public partial class PhotoAlbums_Default : BasePage
     protected void photoAlbumList_SelectedIndexChanged(object sender, EventArgs e)
     {
         ListView1.DataBind();
-        
+
     }
 
     public IEnumerable<PhotoAlbum> PhotoAlbumList_GetData()
@@ -46,8 +46,22 @@ public partial class PhotoAlbums_Default : BasePage
     {
         if (!string.IsNullOrEmpty(photoAlbumList.SelectedValue))
         {
-            EditLInk.NavigateUrl = string.Format("~/ManagePhotoAlbum.aspx?PhotoAlbumId={0}", photoAlbumList.SelectedValue);
-            EditLInk.Visible = true;
+            int photoAlbumId = Convert.ToInt32(photoAlbumList.SelectedValue);
+            using (PlanetWroxEntities myEntities = new PlanetWroxEntities())
+            {
+                string photoAlbumOwner = (from p in myEntities.PhotoAlbums
+                                          where p.Id == photoAlbumId
+                                          select p.UserName).Single();
+                if (User.Identity.IsAuthenticated && (User.Identity.Name == photoAlbumOwner || User.IsInRole("Managers")))
+                {
+                    EditLInk.NavigateUrl = string.Format("~/ManagePhotoAlbum.aspx?PhotoAlbumId={0}", photoAlbumList.SelectedValue);
+                    EditLInk.Visible = true;
+                }
+                else
+                {
+                    EditLInk.Visible = false;
+                }
+            }
         }
         else
         {

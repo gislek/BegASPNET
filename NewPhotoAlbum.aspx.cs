@@ -21,6 +21,7 @@ public partial class _NewPhotoAlbum : BasePage
             using (var myEntities = new PlanetWroxEntities())
             {
                 myEntities.PhotoAlbums.Add(photoAlbum);
+                photoAlbum.UserName = User.Identity.Name;
                 myEntities.SaveChanges();
             }
             Response.Redirect(string.Format("ManagePhotoAlbum?PhotoAlbumId={0}", photoAlbum.Id.ToString()));

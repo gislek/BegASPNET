@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" runat="Server">
-    <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id" ItemType="Picture" InsertItemPosition="LastItem" SelectMethod="ListView1_GetData" InsertMethod="ListView1_InsertItem" DeleteMethod="ListView1_DeleteItem" OnItemCreated="ListView1_ItemCreated">
+    <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id" ItemType="Picture" InsertItemPosition="LastItem" SelectMethod="ListView1_GetData" InsertMethod="ListView1_InsertItem" DeleteMethod="ListView1_DeleteItem">
         <InsertItemTemplate>
             <li>
                 Description: <asp:TextBox ID="Description" runat="server" TextMode="MultiLine" Text='<%# BindItem.Description %>' />

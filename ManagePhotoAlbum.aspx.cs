@@ -12,7 +12,18 @@ public partial class _ManagePhotoAlbum : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        int photoAlbumId = Convert.ToInt32(Request.QueryString.Get("PhotoAlbumId"));
 
+        using (PlanetWroxEntities myEntities = new PlanetWroxEntities())
+        {
+            string photoAlbumOwner = (from p in myEntities.PhotoAlbums
+                                      where p.Id == photoAlbumId
+                                      select p.UserName).Single();
+            if (User.Identity.Name != photoAlbumOwner && !User.IsInRole("Managers"))
+            {
+                Response.Redirect("~/");
+            }
+        }
     }
 
     // The return type can be changed to IEnumerable, however to support
@@ -75,17 +86,6 @@ public partial class _ManagePhotoAlbum : BasePage
 
             string fileName = Server.MapPath(picture.ImageUrl);
             File.Delete(fileName);
-        }
-    }
-
-    protected void ListView1_ItemCreated(object sender, ListViewItemEventArgs e)
-    {
-        switch (e.Item.ItemType)
-        {
-            case ListViewItemType.DataItem:
-                Button deleteButton = (Button)e.Item.FindControl("DeleteButton");
-                deleteButton.Visible = Roles.IsUserInRole("Managers");
-                break;
         }
     }
 }

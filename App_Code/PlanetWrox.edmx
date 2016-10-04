@@ -19,6 +19,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
         <EntityType Name="Picture">
           <Key>
@@ -120,7 +121,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PlanetWroxEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PlanetWroxEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Genres" EntityType="Self.Genre" />
           <EntitySet Name="Reviews" EntityType="Self.Review" />
           <AssociationSet Name="FK_Review_Genre" Association="Self.FK_Review_Genre">
@@ -141,6 +142,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Pictures" Relationship="PlanetWroxModel.FK_Picture_PhotoAlbum" FromRole="PhotoAlbum" ToRole="Picture" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Picture">
           <Key>
@@ -170,7 +172,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PlanetWroxModelStoreContainer" CdmEntityContainer="PlanetWroxEntities1">
+        <EntityContainerMapping StorageEntityContainer="PlanetWroxModelStoreContainer" CdmEntityContainer="PlanetWroxEntities">
           <EntitySetMapping Name="Genres">
             <EntityTypeMapping TypeName="PlanetWroxModel.Genre">
               <MappingFragment StoreEntitySet="Genre">
@@ -197,6 +199,7 @@
           <EntitySetMapping Name="PhotoAlbums">
             <EntityTypeMapping TypeName="PlanetWroxModel.PhotoAlbum">
               <MappingFragment StoreEntitySet="PhotoAlbum">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

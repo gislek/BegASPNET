@@ -3,5 +3,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" Runat="Server">
+    <asp:Repeater ID="GenreRepeater" runat="server">
+        <HeaderTemplate>
+            <p>Below you find a list of reviews for your favorite music genres.</p>
+        </HeaderTemplate>
+        <ItemTemplate>
+            <h3><asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Name") %>'/></h3>
+            <asp:Repeater ID="ReviewRepeater" runat="server" DataSource='<%# Eval("Reviews") %>' ItemType="Review">
+                <ItemTemplate>
+                    <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Item.Title %>' NavigateUrl='<%# "ViewDetails?ReviewId=" + Item.Id.ToString() %>' />
+                    <br />
+                </ItemTemplate>
+            </asp:Repeater>
+        </ItemTemplate>
+    </asp:Repeater>
+    <asp:PlaceHolder ID="NoRecords" runat="server" Visible="false">
+        <p>Sorry, no reviews were found. You either didn't set your favorite genres or you may need to log in first.</p>
+    </asp:PlaceHolder>
+    <p>You can change your genre preferences <a href="~/MyProfile" runat="server">here</a></p>
 </asp:Content>
 
